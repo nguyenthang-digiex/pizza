@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
+import Home from "./page/Home";
+import Header from "./components/header";
+import Middle from "./components/middle";
+import Pizza from "./page/Pizza";
+import Burger from "./page/Burger";
+import Footer from "./components/footer";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Header/>
+            <Middle/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/pizza">
+                    <Route index={true} element={<Pizza/>}/>
+                </Route>
+                <Route path="/burger">
+                    <Route index={true} element={<Burger/>} />
+                </Route>
+            </Routes>
+            <Footer/>
+            <ToastContainer autoClose={2000}/>
+        </BrowserRouter>
+    );
 }
 
 export default App;

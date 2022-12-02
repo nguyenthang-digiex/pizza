@@ -1,4 +1,6 @@
 import BannerLogo from '../../asses/Banner.png';
+import BannerLogo1 from '../../asses/banner1.png';
+import BannerLogo2 from '../../asses/banner2.jpeg';
 import BannerSmallLogo from '../../asses/banner_small.jpeg';
 import BannerSmall1Logo from '../../asses/banner_small1.png';
 import Image from '../../asses/image1.png';
@@ -12,11 +14,11 @@ import Pizza1 from "../../asses/pizza1.png";
 import Pizza2 from "../../asses/pizza2.png";
 import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
+import PanelCarousel from "../../components/PanelCarousel";
 
 
 function Home() {
     const [tabName, setTabName] = useState("1");
-    const [number, setNumber] = useState(true);
     const tabList = [
         {
             id: '1',
@@ -32,7 +34,6 @@ function Home() {
             content: ''
         },
     ]
-
 
     const pizzaList = [
         {
@@ -76,10 +77,48 @@ function Home() {
         }
     ]
 
+    const bannerList = [
+        {
+            id: '1',
+            image: <img style={{
+                cursor: 'pointer',
+                margin: 'auto',
+                width: '100%', height: '100%'
+            }} src={BannerLogo} alt=''/>
+        }, {
+            id: '2',
+            image: <img style={{
+                cursor: 'pointer',
+                margin: 'auto',
+                width: '100%', height: '100%'
+            }} src={BannerLogo1} alt=''/>
+        }, {
+            id: '3',
+            image: <img style={{
+                cursor: 'pointer',
+                margin: 'auto',
+                width: '100%', height: '100%'
+            }} src={BannerLogo2} alt=''/>
+        },
+    ]
+
     return (
         <div className="min-w-[1200px]">
-            <div className="min-w-[1200px] h-[880px] overflow-visible m-auto">
-                <img style={{width: '100%', height: '100%'}} src={BannerLogo} alt=''/>
+            <div className="min-w-[1200px] overflow-visible m-auto bg-[#c00a27]">
+                <PanelCarousel
+                    effect="fade"
+                    slidesPerView={1}
+                    data={bannerList}
+                    onRenderItem={item => (
+                        <div className="h-[880px]">
+                            {item.image}
+                        </div>
+                    )}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false
+                    }}
+                />
             </div>
             <div className="flex justify-center items-center bg-[#fff] min-w-[1200px] pt-10">
                 <div className="flex">
@@ -138,7 +177,7 @@ function Home() {
                 </div>
                 <div className="pt-10 flex">
                     {pizzaList.map(tab =>
-                        <div key={tab.id} className="flex mx-auto text-center  justify-center items-center w-[50%]">
+                        <div key={tab.id} className="flex mx-auto text-center justify-center items-center w-[50%]">
                             <div className="flex flex-col items-center hover:border-4 border-[#E9E9E9] relative"
                                  style={{height: "364px", width: '250px'}}>
                                 {tab.image}
@@ -146,7 +185,7 @@ function Home() {
                                     {tab.name}
                                     </span>
                                 <span
-                                    className="italic font-normal text-[#71706c] overflow-hidden h-[50px] leading-6 text-xs">{tab.title}</span>
+                                    className="italic font-normal text-[#71706c] overflow-hidden h-[50px] leading-7 text-xs">{tab.title}</span>
                                 <div className="text-[#666] font-normal text-lg">
                                     <span>{tab.price}</span>-<span>{tab.oldPrice}</span>
                                 </div>

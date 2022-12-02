@@ -5,7 +5,6 @@ import {EffectFade, Pagination, Autoplay} from 'swiper';
 import {HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi';
 import {AppColors} from '../../utils/constants/AppColors';
 import {AppCarouselProps} from '../Carousel';
-import styles from './PanelCarousel.module.css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
@@ -46,8 +45,22 @@ const PanelCarousel = (props: PanelCarouselProps) => {
                 {...rest}
             >
                 {!hideCustomControl && (
-                    <div className={styles.containerFooterPanel}>
-                        <div className={styles.wrapperControls}>
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '12px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        left: 0,
+                        right: 0,
+                        zIndex: 1
+                    }}>
+                        <div style={{
+                            display: 'flex',
+                            borderRadius: '50px',
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
                             <SwiperButtonPrevios>
                                 <HiOutlineChevronLeft size={24} color={AppColors.white} opacity={0.7}/>
                             </SwiperButtonPrevios>

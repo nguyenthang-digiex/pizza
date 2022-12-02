@@ -4,13 +4,12 @@ import {Navigation, Pagination, Autoplay} from 'swiper';
 import {HiOutlineChevronLeft, HiOutlineChevronRight} from 'react-icons/hi';
 import {AppColors} from '../../utils/constants/AppColors';
 import classNames from 'classnames';
-import styles from './Carousel.module.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export interface AppCarouselProps extends SwiperProps {
-    data: ReadonlyArray<any> | null | undefined;
+    data?: ReadonlyArray<any> | null | undefined;
     onRenderItem?: (item: any, index: number) => React.ReactElement | null;
     containerStyle?: string;
     showControls?: boolean;
@@ -112,12 +111,25 @@ const AppCarousel = (props: AppCarouselProps) => {
             }
         };
     }
+
+
     return (
         <div className={classNames('relative', containerStyle)}>
             <div className="md:px-14">
                 {showControls && (
-                    <div className={`${styles.containerFooterCarousel} hidden md:block`}>
-                        <div className={classNames(styles.wrapperControls, styleWrapperControl)}>
+                    <div className=" hidden md:block" style={{
+                        position: 'absolute',
+                        left: '50 %',
+                        top: '50 %',
+                        transform: 'translate(-50 %, -50 %)',
+                        width: "100 %",
+                        zIndex: 1
+                    }}>
+                        <div className={classNames(styleWrapperControl)} style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}>
                             <button onClick={handlePrevSlide} type="button">
                                 <HiOutlineChevronLeft size={36} color={AppColors.brown}/>
                             </button>

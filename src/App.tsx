@@ -7,6 +7,8 @@ import Middle from "./components/middle";
 import Pizza from "./page/Pizza";
 import Burger from "./page/Burger";
 import Footer from "./components/footer";
+import Salads from "./page/Salads";
+import Tacos from "./page/Tacos";
 
 
 function App() {
@@ -21,6 +23,12 @@ function App() {
                 </Route>
                 <Route path="/burger">
                     <Route index={true} element={<Burger/>} />
+                </Route>
+                <Route path="/salads">
+                    <Route index={true} element={<Salads/>}/>
+                </Route>
+                <Route path="/tacos">
+                    <Route index={true} element={<Tacos/>}/>
                 </Route>
             </Routes>
             <Footer/>

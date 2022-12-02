@@ -4,6 +4,8 @@ import PotatoChipIcon from '../../asses/PotatoChips'
 import {Link} from "react-router-dom";
 import PizzaIcon from "../../asses/pizza";
 import BurgerIcon from "../../asses/burger";
+import Tacos from "../../asses/tacos";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function Middle() {
     const [tabName, setTabName] = useState("1");
@@ -26,19 +28,25 @@ function Middle() {
             </Link>,
             content: ''
         },
+
         {
             id: "3",
-            tabTitle: "Salads",
+            tabTitle: <Link to="/salads" className="flex justify-center items-center">
+                Salads</Link>,
             content: ''
         },
         {
             id: "4",
-            tabTitle: "Tacos",
+            tabTitle:
+                <Link to="/tacos" className="flex justify-center items-center">
+                    <Tacos/>
+                    Tacos
+                </Link>,
             content: ''
         },
         {
             id: "5",
-            tabTitle: "Wraps",
+            tabTitle: <div className="flex justify-center items-center">Wraps</div>,
             content: ''
         },
         {

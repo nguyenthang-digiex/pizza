@@ -1,64 +1,21 @@
 import {Link} from "react-router-dom";
-import Pizza1 from '../../asses/pizza1.png'
-import Pizza2 from '../../asses/pizza2.png'
-import Pizza3 from '../../asses/pizza3.png'
-import Pizza4 from '../../asses/pizza4.png'
-import {useState} from "react";
-import Page1 from "./page/page1";
-import Page2 from "./page/page2";
+import Pizza1 from "../../asses/pizza1.png";
+import Pizza2 from "../../asses/pizza2.png";
+import Pizza3 from "../../asses/pizza3.png";
+import Pizza4 from "../../asses/pizza4.png";
 
-function Pizza() {
-    const [number, setNumber] = useState(true);
-
-    const tabList = [
-        {
-            id: '1',
-            image: <img src={Pizza1} alt="" className="cursor-pointer"/>,
-            name: 'Hawaii Vegetarian Pizza',
-            price: '100.000đ',
-            oldPrice: ' 300.000đ',
-
-        },
-        {
-            id: '2',
-            tabTitle: 'Burger',
-            image: <img src={Pizza2} alt="" className="cursor-pointer"/>,
-            name: 'Hawaii Vegetarian Pizza',
-            price: '200.000đ',
-            oldPrice: ' 500.000đ',
-
-        },
-        {
-            id: '3',
-            tabTitle: 'Burger',
-            image: <img src={Pizza3} alt="" className="cursor-pointer"/>,
-            name: 'Hawaii Vegetarian Pizza',
-            price: '80.000đ',
-            oldPrice: ' 400.000đ',
-
-        },
-        {
-            id: '4',
-            tabTitle: 'Burger',
-            image: <img src={Pizza4} alt="" className="cursor-pointer"/>,
-            name: 'Hawaii Vegetarian Pizza',
-            price: '150.000đ',
-            oldPrice: ' 300.000đ',
-
-        },
-    ]
-
+function Tacos() {
     return (
         <div className="flex flex-col justify-center items-center min-w-[1200px]">
-            <div id="banner_pizza"
+            <div id="banner_tacos"
                  className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                 <div className="text-6xl text-white font-serif">
-                    PIZZA
+                    Tacos
                 </div>
                 <div className="flex pt-5 ">
                     <Link to="/" className="text-white">Trang Chủ</Link>
-                    <h3 className="mx-2 text-white"> {">"} Pizza</h3>
-                    {!number && <h3 className="text-white">{">"} Trang 2</h3>}
+                    <h3 className="mx-2 text-white"> {">"} Tacos</h3>
+
                 </div>
             </div>
             <div id="select" className="flex flex-col items-center bg-[#fff] h-[100px] min-w-[1200px]">
@@ -84,8 +41,7 @@ function Pizza() {
                     </div>
                 </div>
             </div>
-
-            <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
+            <div id="middle_tacos" className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                 <div className="flex flex-col">
                     <div
                         className="flex flex-col items-center bg-[#f7f7f7] h-[430px] min-w-[250px] rounded-lg"
@@ -134,70 +90,91 @@ function Pizza() {
                             placeholder="Tìm kiếm sản phẩm..."
                         />
                     </div>
-
                     <div className="pt-5">
                         <label className="text[#2d2b2d] font-normal text-xl">
                             Đang giảm giá
                         </label>
-                        {tabList.map(tab => (
-                            <div
-                                id={tab.id}
-                                key={tab.id}
-                                className="flex flex-col items-start min-w-[250px]">
-                                <div
-                                    className="flex justify-center items-center text-center relative mt-0 py-5 w-[273px]"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    <div style={{width: '100px', height: '100px'}}>
-                                        {tab.image}
-                                    </div>
-                                    <div>
-                                        <span className="font-normal text-[#c00a27]">{tab.name}</span>
-
-                                        <div className="text-[#666] font-normal">
-                                            <div className="flex flex-col">
-                                                <span>{tab.price} -</span><span>{tab.oldPrice}</span>
-                                            </div>
+                        <div className="flex flex-col items-start min-w-[250px]">
+                            <div className="flex justify-center items-center text-center relative mt-0 py-5 w-[273px]"
+                                 style={{borderBottom: '1px solid #ebeaf1'}}>
+                                <div style={{width: '100px', height: '100px'}}>
+                                    <img src={Pizza1} alt="" className="cursor-pointer"/>
+                                </div>
+                                <div>
+                                    <span className="font-normal text-[#c00a27]">Hawaii Vegetarian Pizza</span>
+                                    <div className="text-[#666] font-normal">
+                                        <div className="flex flex-col">
+                                    <span>
+                                    100.000đ - </span>
+                                            <span>
+                                    300.000đ</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                            <div className="flex justify-start items-center text-center relative mt-0 py-5 w-[273px]"
+                                 style={{borderBottom: '1px solid #ebeaf1'}}>
+                                <div style={{width: '100px', height: '100px'}}>
+                                    <img src={Pizza2} alt="" className="cursor-pointer"/>
+                                </div>
+                                <div>
+                                    <span className="font-normal text-[#c00a27]">Apricot Chicken</span>
+                                    <div className="text-[#666] font-normal">
+                                        <div className="flex flex-col">
+                                    <span>
+                                    100.000đ - </span>
+                                            <span>
+                                    300.000đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-start items-center text-center relative mt-0 py-5 w-[273px]"
+                                 style={{borderBottom: '1px solid #ebeaf1'}}>
+                                <div style={{width: '100px', height: '100px'}}>
+                                    <img src={Pizza3} alt="" className="cursor-pointer"/>
+                                </div>
+                                <div>
+                                    <span className="font-normal text-[#c00a27]">Grand Italiano</span>
+                                    <div className="text-[#666] font-normal">
+                                        <div className="flex flex-col">
+                                    <span>
+                                    100.000đ - </span>
+                                            <span>
+                                    300.000đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-start items-center text-center relative mt-0 py-5 w-[273px]"
+                                 style={{borderBottom: '1px solid #ebeaf1'}}>
+                                <div style={{width: '100px', height: '100px'}}>
+                                    <img src={Pizza4} alt="" className="cursor-pointer"/>
+                                </div>
+                                <div>
+                                    <span className="font-normal text-[#c00a27]">Chicken Hawaii</span>
+                                    <div className="text-[#666] font-normal">
+                                        <div className="flex flex-col">
+                                    <span>
+                                    100.000đ - </span>
+                                            <span>
+                                    300.000đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div className="flex flex-col pb-5">
-                    {number ? (<Page1/>) : (<Page2/>)}
-                    <div className="flex justify-center items-center pt-10">
-                        {!number &&
-                            <div
-                                className="flex justify-center items-center rounded-xl w-[150px] h-10 mx-2 hover:bg-[#f0f0f0] active:hover:bg-[#f0f0f0] focus:outline-none cursor-pointer text-slate-400"
-                                style={{border: '1px solid #ebeaf1'}} onClick={() => setNumber(!number)}>
-                                Trang trước
-                            </div>
-                        }
-                        <button
-                            className={number ? 'rounded-full w-14 h-14 mx-2 bg-[#f0f0f0] hover:bg-[#f0f0f0] active:hover:bg-[#f0f0f0] focus:outline-none cursor-not-allowed' : 'rounded-full w-14 h-14 mx-5 bg-white hover:bg-[#f0f0f0] focus:outline-none text-slate-400'}
-                            style={{border: '1px solid #ebeaf1'}} onClick={() => setNumber(!number)}>
-                            1
-                        </button>
-                        <button
-                            className={number ? 'rounded-full w-14 h-14 mx-2 bg-white hover:bg-[#f0f0f0] active:hover:bg-[#f0f0f0] focus:outline-none text-slate-400' : 'rounded-full w-14 h-14 mx-5 bg-[#f0f0f0] hover:bg-[#f0f0f0] focus:outline-none cursor-not-allowed'}
-                            style={{border: '1px solid #ebeaf1'}} onClick={() => setNumber(!number)}>
-                            2
-                        </button>
-
-                        {number &&
-                            <div
-                                className="flex justify-center items-center rounded-xl w-[150px] h-10 mx-2 hover:bg-[#f0f0f0] active:hover:bg-[#f0f0f0] focus:outline-none cursor-pointer text-slate-400"
-                                style={{border: '1px solid #ebeaf1'}} onClick={() => setNumber(!number)}>
-                                Trang tiếp
-                            </div>
-                        }
-                    </div>
+                <div className="flex">
+                    <p className="flex min-w-[850px] bg-[#3D9CD2] p-5 text-white clear-both"
+                       style={{borderLeft: '.6180469716em solid rgba(0,0,0,.15)'}}>
+                        Sản phẩm đang được cập nhật
+                    </p>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Pizza
+export default Tacos

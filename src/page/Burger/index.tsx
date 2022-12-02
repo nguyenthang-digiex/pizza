@@ -52,26 +52,28 @@ function Burger() {
                     <div
                         className="flex flex-col items-center bg-[#f7f7f7] h-[430px] min-w-[250px] rounded-lg"
                         style={{borderBottom: '1px solid #ebeaf1'}}>
-                        <Link to="/Burger"
+                        <Link to="/pizza"
                               className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative  mt-0"
                               style={{borderBottom: '1px solid #ebeaf1'}}>
-                            Burger
+                            Pizza
                         </Link>
                         <Link to="/burger"
                               className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
                               style={{borderBottom: '1px solid #ebeaf1'}}>
                             Burger
                         </Link>
-                        <div
+                        <Link
+                            to="/salads"
                             className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
                             style={{borderBottom: '1px solid #ebeaf1'}}>
                             Salads
-                        </div>
-                        <div
+                        </Link>
+                        <Link
+                            to="/tacos"
                             className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
                             style={{borderBottom: '1px solid #ebeaf1'}}>
                             Tacos
-                        </div>
+                        </Link>
                         <div
                             className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
                             style={{borderBottom: '1px solid #ebeaf1'}}>

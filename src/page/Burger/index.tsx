@@ -9,9 +9,6 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 
 function Burger() {
-    const burgers = [
-        { image: '../../asses/burger1.png', name: 'Burger1'}
-    ]
 
     return (
         <div className="flex flex-col justify-center items-center min-w-[1200px]">

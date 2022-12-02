@@ -1,34 +1,13 @@
 import {Link} from "react-router-dom";
 import LogoImage from '../../asses/LogoPizza.png'
 import IconShipper from '../../asses/shipper.svg'
-
-import SunIcon from '../../asses/Sun.svg'
-import MoonIcon from '../../asses/Moon.svg'
-
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 
 function Header() {
     const [state, setState] = useState({
         typeSelect: true
     })
-    const [theme, setTheme] = useState(localStorage.them)
-    const isDarkMode = theme === 'dark'
-
-    const handleToggleDarkMode = () => {
-        setTheme(isDarkMode ? 'light' : 'dark')
-    }
-    useEffect(() => {
-        const root = window.document.documentElement
-        if (isDarkMode) {
-            root.classList.remove('light')
-        } else {
-            root.classList.remove('dark')
-        }
-        root.classList.add(theme)
-        localStorage.setItem('theme', theme)
-    }, [isDarkMode])
-
 
     return (
         <div className="flex justify-around items-center bg-[#c00a27] min-w-[1200px] pt-8">

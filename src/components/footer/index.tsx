@@ -36,7 +36,7 @@ function Footer() {
             <div className="pt-16 w-[200px] h-[200px]">
                 <img src={LogoImage} alt=""/>
             </div>
-            <span className="text-[#7f7f7f]">Copyright 2017 © Thiết kế website bởi Topweb.com.vn</span>
+            <span className="text-[#7f7f7f]">Copyright 2017 © Thiết kế website bởi NGUYỄN THỌ THẮNG</span>
 
         </div>
     )

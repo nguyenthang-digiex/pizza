@@ -1,13 +1,21 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import LogoImage from '../../asses/LogoPizza.png'
 import IconShipper from '../../asses/shipper.svg'
 import {useState} from "react";
+import Logout from "../../asses/logout";
 
 
 function Header() {
+    const navigate = useNavigate()
     const [state, setState] = useState({
         typeSelect: true
     })
+    // @ts-ignore
+    const loginValue = JSON.parse(localStorage.getItem('save_password'));
+
+    const handleLogout = () => {
+        navigate('/auth/login')
+    }
 
     return (
         <div className="flex justify-around items-center bg-[#c00a27] min-w-[1200px] pt-8">
@@ -23,9 +31,19 @@ function Header() {
                     <div id="TT" className="text-white m-5 cursor-pointer hover:border-b-2 border-y-amber-300">
                         Tin tức
                     </div>
-                    <div id="TCH" className="text-white m-5 cursor-pointer hover:border-b-2 border-y-amber-300">
-                        Tìm cửa hàng
-                    </div>
+                    {!loginValue ?
+                        <Link id="DN" className="text-white m-5 cursor-pointer hover:border-b-2 border-y-amber-300"
+                              to="/auth/login">
+                            Đăng nhập
+                        </Link>
+                        : (
+                            <div className="text-white m-5 cursor-pointer hover:border-b-2 border-y-amber-300"
+                                 onClick={handleLogout}>
+                                <Logout/>
+                            </div>
+                        )
+                    }
+
                 </div>
                 <div id="Phone" className="text-white flex flex-col">
                     <div className="flex">

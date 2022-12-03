@@ -9,20 +9,25 @@ import Burger from "./page/Burger";
 import Footer from "./components/footer";
 import Salads from "./page/Salads";
 import Tacos from "./page/Tacos";
+import Login from "./page/Auth/Login";
+import Register from "./page/Auth/register";
 
 
 function App() {
+
     return (
         <BrowserRouter>
             <Header/>
             <Middle/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/auth/login" index={true}  element={<Login/>}/>
+                <Route path="/auth/register" index={true} element={<Register/>}/>
                 <Route path="/pizza">
                     <Route index={true} element={<Pizza/>}/>
                 </Route>
                 <Route path="/burger">
-                    <Route index={true} element={<Burger/>} />
+                    <Route index={true} element={<Burger/>}/>
                 </Route>
                 <Route path="/salads">
                     <Route index={true} element={<Salads/>}/>

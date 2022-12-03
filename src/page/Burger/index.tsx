@@ -46,7 +46,6 @@ function Burger() {
                     </div>
                 </div>
             </div>
-
             <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                 <div className="flex flex-col">
                     <div

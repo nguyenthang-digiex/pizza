@@ -14,7 +14,6 @@ import Register from "./page/Auth/register";
 
 
 function App() {
-
     return (
         <BrowserRouter>
             <Header/>

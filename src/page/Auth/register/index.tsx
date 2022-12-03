@@ -117,7 +117,6 @@ const Register = () => {
                         {!loading ? (
                             <button
                                 className='w-[518px] bg-blue-500 py-2 px-4 text-white rounded-lg hover:bg-blue-700'
-                                // type='submit'
                             >
                             <span className="animate-spin ">
                                 Register

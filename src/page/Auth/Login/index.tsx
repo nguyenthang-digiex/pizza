@@ -64,7 +64,6 @@ function Login() {
                             }}
                             value={state.email}
                         />
-
                     </div>
                     <div className='flex flex-col justify-start items-start pt-5'>
                         <label htmlFor="password">
@@ -87,15 +86,12 @@ function Login() {
                                  onClick={() => setType(!type)}>
                                 {type ? (<Eye001/>) : <Eye002/>}
                             </div>
-
                         </div>
-
                     </div>
                     <div className='grid justify-items-center pt-5 '>
                         {(!loading) ? (
                             <Button
                                 classname='w-[518px] py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-m hover:bg-blue-700 focus:outline-none'
-                                // type='submit'
                             >
                             <span className="animate-spin">
                                 Login

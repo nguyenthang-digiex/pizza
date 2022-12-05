@@ -3,6 +3,8 @@ import BannerLogo1 from '../../asses/banner1.png';
 import BannerLogo2 from '../../asses/banner2.jpeg';
 import BannerSmallLogo from '../../asses/banner_small.jpeg';
 import BannerSmall1Logo from '../../asses/banner_small1.png';
+import BannerSmall3Logo from '../../asses/banner_small2.png';
+import BannerSmall2Logo from '../../asses/banner3.png';
 import Image from '../../asses/image1.png';
 import Image1 from '../../asses/image2.png';
 import Image2 from '../../asses/image3.png';
@@ -102,6 +104,19 @@ function Home() {
         },
     ]
 
+    const bannerSmallList = [
+        {
+            id: '1',
+            image: <img style={{width: '100%', height: '100%'}} src={BannerSmallLogo} alt=''/>
+        }, {
+            id: '2',
+            image: <img style={{width: '100%', height: '100%'}} src={BannerSmall2Logo} alt=''/>
+        }, {
+            id: '3',
+            image: <img style={{width: '100%', height: '100%'}} src={BannerSmall3Logo} alt=''/>
+        }
+    ]
+
     return (
         <div className="min-w-[1200px]">
             <div className="min-w-[1200px] overflow-visible m-auto bg-[#c00a27]">
@@ -113,24 +128,27 @@ function Home() {
                         <div className="h-[880px] relative">
                             {item.image}
                             {item.id === '1' &&
-                                <div className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[250px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                <div
+                                    className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
                                     VEGGIE FUN
                                     <br/>
                                     DELICIOUS SUMMER!
                                 </div>
                             }{item.id === '2' &&
-                                <div className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[250px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
-                                    VEGGIE FUN
-                                    <br/>
-                                    DELICIOUS SUMMER!
-                                </div>
-                            }{item.id === '3' &&
-                                <div className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[250px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
-                                    VEGGIE FUN
-                                    <br/>
-                                    DELICIOUS SUMMER!
-                                </div>
-                            }
+                            <div
+                                className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                VEGGIE FUN
+                                <br/>
+                                DELICIOUS SUMMER!
+                            </div>
+                        }{item.id === '3' &&
+                            <div
+                                className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                VEGGIE FUN
+                                <br/>
+                                DELICIOUS SUMMER!
+                            </div>
+                        }
                         </div>
                     )}
                     autoplay={{
@@ -182,8 +200,49 @@ function Home() {
                     )}
                 </div>
             </div>
+
             <div className="min-w-[1200px] py-12">
-                <img style={{width: '100%', height: '100%'}} src={BannerSmallLogo} alt=''/>
+                <PanelCarousel
+                    effect="fade"
+                    slidesPerView={1}
+                    data={bannerSmallList}
+                    onRenderItem={item => (
+                        <div className="h-[470px] bg-center bg-cover relative">
+                            {item.image}
+                            <div className="absolute"
+                                 style={{top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}>
+                                <h3 className="relative overflow-hidden text-center mb-0 text-2xl font-light">
+                                    <span className="inline-block align-baseline relative text-white"
+                                          style={{zoom: 1, padding: '0 20px'}}>
+                                    GIAO HÀNG MIỄN PHÍ
+                                    </span>
+                                </h3>
+                                <h2
+                                    className="text-white text-7xl font-sans border-none"
+                                    style={{margin: 0, paddingBottom: '3.2px', fontSize: '4.5em'}}>
+                                    MUA PIZZA HÔM NAY
+                                </h2>
+                                <div style={{display: 'table', width: '100%', marginBottom: '35px', paddingTop: '25px'}}>
+                                    <div className="text-white" style={{lineHeight: '.6rem', fontSize: '6.625em'}}>
+                                        <span className="font-bold text-center" style={{display: 'block'}}>
+                                            99.000
+                                            <span className="align-top"
+                                                  style={{lineHeight: '1rem', fontSize: '.5em'}}>đ</span>
+                                        <span className="align-top" style={{lineHeight: '1rem', fontSize: '.5em'}}/>
+                                        <span className="relative text-[#c2aa7e]"
+                                              style={{bottom: '-4px', right: '34px', fontSize: '.16em'}}>CHỈ VỚI</span>
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false
+                    }}
+                />
             </div>
             <div className="flex flex-col justify-center items-center min-w-[1200px]">
                 <div className="flex min-w-[1200px] justify-center items-center"

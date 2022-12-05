@@ -50,8 +50,7 @@ function Pizza() {
 
     return (
         <div className="flex flex-col justify-center items-center min-w-[1200px]">
-            <div id="banner_pizza"
-                 className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
+            <div id="banner_pizza" className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                 <div className="text-6xl text-white font-serif">
                     PIZZA
                 </div>
@@ -61,6 +60,7 @@ function Pizza() {
                     {!number && <h3 className="text-white">{">"} Trang 2</h3>}
                 </div>
             </div>
+
             <div id="select" className="flex flex-col items-center bg-[#fff] h-[100px] min-w-[1200px]">
                 <div className="flex justify-between items-center min-w-[1200px] p-10 text-[#8c8c8c]"
                      style={{borderBottom: '1px solid #ebeaf1'}}>

@@ -110,8 +110,27 @@ function Home() {
                     slidesPerView={1}
                     data={bannerList}
                     onRenderItem={item => (
-                        <div className="h-[880px]">
+                        <div className="h-[880px] relative">
                             {item.image}
+                            {item.id === '1' &&
+                                <div className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[250px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                    VEGGIE FUN
+                                    <br/>
+                                    DELICIOUS SUMMER!
+                                </div>
+                            }{item.id === '2' &&
+                                <div className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[250px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                    VEGGIE FUN
+                                    <br/>
+                                    DELICIOUS SUMMER!
+                                </div>
+                            }{item.id === '3' &&
+                                <div className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[250px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                    VEGGIE FUN
+                                    <br/>
+                                    DELICIOUS SUMMER!
+                                </div>
+                            }
                         </div>
                     )}
                     autoplay={{

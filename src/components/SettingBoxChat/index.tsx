@@ -16,8 +16,7 @@ function SettingBoxChat(props: Props) {
                     Truy cập Trang Facebook
                 </div>
             </a>
-            <a target="_blank" href="https://www.messenger.com/desktop/launch">
-
+            <a target="_blank" href="https://www.messenger.com/desktop/?funnel_session_id=#startDownload">
                 <div
                     className="flex items-center rounded-[6px] cursor-pointer outline-none p-[8px] text-sm hover:bg-[#e5e5e5] leading-5 font-normal"
                     style={{margin: '0 8px'}}>

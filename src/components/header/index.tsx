@@ -10,6 +10,8 @@ function Header() {
     const [state, setState] = useState({
         typeSelect: true
     })
+    const [showNoti, setShowNoti] = useState(false);
+
     // @ts-ignore
     const loginValue = JSON.parse(localStorage.getItem('save_password'));
 
@@ -59,13 +61,34 @@ function Header() {
                         {state.typeSelect ? "1900 2066" : "1900 8888"}
                     </div>
                 </div>
-                <div id="Cart">
-                    <button
+                <div id="Cart" className="relative cursor-pointer"
+                     onMouseOut={() => setShowNoti(false)}
+                     onMouseOver={() => setShowNoti(true)}
+                >
+                    <div
                         className="flex items-center justify-center rounded-full bg-[#8ca93e] text-white w-[250px] h-[70px]">
                         <img src={IconShipper} alt='' className="mr-2"/>
                         Your cart is Empty
-                    </button>
+                    </div>
+
+                    <div
+                        className="absolute left-[50%] bottom-[-63px] w-[100px] list-none overflow-hidden min-h-[52px] border-t-2 border-[#226f0b] m-auto"
+                        style={{transform: 'translate(-50%,-50%)', content: ''}}>
+                        {showNoti &&
+                            <div className="w-inherit bg-white absolute h-[45px] "
+                                 style={{
+                                     transition: 'transform .3s'
+                                 }}>
+                                <div className="flex justify-center items-center" style={{padding: '6px 10px'}}>
+                                    <span className=" pl-1 shrink-0 text-xs">0 items</span>
+                                    <span className="pl-[26px] pr-[14px] text-xs shrink-0 font-bold">0<span className="underline">đ</span></span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
                 </div>
+
             </div>
         </div>
     )

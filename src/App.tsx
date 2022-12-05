@@ -11,6 +11,7 @@ import Salads from "./page/Salads";
 import Tacos from "./page/Tacos";
 import Login from "./page/Auth/Login";
 import Register from "./page/Auth/register";
+import Chat from "./components/Chat";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             <Middle/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/auth/login" index={true}  element={<Login/>}/>
+                <Route path="/auth/login" index={true} element={<Login/>}/>
                 <Route path="/auth/register" index={true} element={<Register/>}/>
                 <Route path="/pizza">
                     <Route index={true} element={<Pizza/>}/>
@@ -36,6 +37,7 @@ function App() {
                 </Route>
             </Routes>
             <Footer/>
+            <Chat/>
             <ToastContainer autoClose={2000}/>
         </BrowserRouter>
     );

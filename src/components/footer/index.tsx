@@ -22,7 +22,7 @@ function Footer() {
                 </div>
                 <div className="flex justify-center items-center rounded-full w-14 h-14 mx-5"
                      style={{border: '1px solid #f0f0f0'}}>
-                    <a target="_blank" rel="noopener" href="/">
+                    <a rel="noopener" href="/">
                         <Twitter className="w-6 h-6"/>
                     </a>
                 </div>
@@ -36,7 +36,7 @@ function Footer() {
             <div className="pt-16 w-[200px] h-[200px]">
                 <img src={LogoImage} alt=""/>
             </div>
-            <span className="text-[#7f7f7f]">Copyright 2017 © Thiết kế website bởi NGUYỄN THỌ THẮNG</span>
+            <span className="text-[#7f7f7f]">Copyright 2022 © Thiết kế website bởi NGUYỄN THỌ THẮNG</span>
 
         </div>
     )

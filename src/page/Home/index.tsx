@@ -81,30 +81,20 @@ function Home() {
 
         }
     ]
+
     const bannerList = [
         {
             id: '1',
-            image: <img style={{
-                cursor: 'pointer',
-                margin: 'auto',
-                width: '100%', height: '100%'
-            }} src={BannerLogo} alt=''/>
+            image: BannerLogo
         }, {
             id: '2',
-            image: <img style={{
-                cursor: 'pointer',
-                margin: 'auto',
-                width: '100%', height: '100%'
-            }} src={BannerLogo1} alt=''/>
+            image: BannerLogo1
         }, {
             id: '3',
-            image: <img style={{
-                cursor: 'pointer',
-                margin: 'auto',
-                width: '100%', height: '100%'
-            }} src={BannerLogo2} alt=''/>
+            image: BannerLogo2
         },
     ]
+
     const bannerSmallList = [
         {
             id: '1',
@@ -139,7 +129,11 @@ function Home() {
                             </div>
                             {!isLoading &&
                                 <>
-                                    {item.image}
+                                    <img style={{
+                                        cursor: 'pointer',
+                                        margin: 'auto',
+                                        width: '100%', height: '100%'
+                                    }} src={item.image} alt=''/>
                                     {item.id === '1' &&
                                         <div
                                             className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] md:left-[400px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
@@ -290,8 +284,9 @@ function Home() {
                     {pizzaList.map(tab =>
                         <div key={tab.id}
                              className="flex mx-auto text-center justify-center items-center w-[50%]">
-                            <div className={!showNoti ? 'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[364px] w-[250px]' :
-                            'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[400px] w-[250px]'}>
+                            <div
+                                className={!showNoti ? 'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[364px] w-[250px]' :
+                                    'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[400px] w-[250px]'}>
                                 {tab.image}
                                 <span className="font-normal text-lg">
                                     {tab.name}
@@ -302,7 +297,8 @@ function Home() {
                                     <span>{tab.price}</span>-<span>{tab.oldPrice}</span>
                                 </div>
                                 {showNoti &&
-                                    <div className="bottom-0 flex justify-center items-center w-inherit bg-red-500 absolute h-[45px] rounded-full cursor-pointer">
+                                    <div
+                                        className="bottom-0 flex justify-center items-center w-inherit bg-red-500 absolute h-[45px] rounded-full cursor-pointer">
                                         <div className="flex justify-center items-center" style={{padding: '6px 10px'}}>
                                             <span className="pl-1 text-xs">Chọn tuỳ chọn</span>
                                         </div>

@@ -129,21 +129,21 @@ function Home() {
                             {item.image}
                             {item.id === '1' &&
                                 <div
-                                    className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                    className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] md:left-[400px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
                                     VEGGIE FUN
                                     <br/>
                                     DELICIOUS SUMMER!
                                 </div>
                             }{item.id === '2' &&
                             <div
-                                className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] md:left-[400px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
                                 VEGGIE FUN
                                 <br/>
                                 DELICIOUS SUMMER!
                             </div>
                         }{item.id === '3' &&
                             <div
-                                className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
+                                className="absolute whitespace-nowrap p-0 m-0 top-[200px] left-[100px] md:left-[400px] text-white text-9xl z-10 font-bold text-center leading-[120px] font-sans ">
                                 VEGGIE FUN
                                 <br/>
                                 DELICIOUS SUMMER!
@@ -209,21 +209,28 @@ function Home() {
                     onRenderItem={item => (
                         <div className="h-[470px] bg-center bg-cover relative">
                             {item.image}
-                            <div className="absolute"
-                                 style={{top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}>
-                                <h3 className="relative overflow-hidden text-center mb-0 text-2xl font-light">
+                            {item.id === '1' &&
+                                <div className="absolute"
+                                     style={{top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}>
+                                    <h3 className="relative overflow-hidden text-center mb-0 text-2xl font-light">
                                     <span className="inline-block align-baseline relative text-white"
                                           style={{zoom: 1, padding: '0 20px'}}>
                                     GIAO HÀNG MIỄN PHÍ
                                     </span>
-                                </h3>
-                                <h2
-                                    className="text-white text-7xl font-sans border-none"
-                                    style={{margin: 0, paddingBottom: '3.2px', fontSize: '4.5em'}}>
-                                    MUA PIZZA HÔM NAY
-                                </h2>
-                                <div style={{display: 'table', width: '100%', marginBottom: '35px', paddingTop: '25px'}}>
-                                    <div className="text-white" style={{lineHeight: '.6rem', fontSize: '6.625em'}}>
+                                    </h3>
+                                    <h2
+                                        className="text-white text-7xl font-sans border-none"
+                                        style={{margin: 0, paddingBottom: '3.2px', fontSize: '4.5em'}}>
+                                        MUA PIZZA HÔM NAY
+                                    </h2>
+                                    <div
+                                        style={{
+                                            display: 'table',
+                                            width: '100%',
+                                            marginBottom: '35px',
+                                            paddingTop: '25px'
+                                        }}>
+                                        <div className="text-white" style={{lineHeight: '.6rem', fontSize: '6.625em'}}>
                                         <span className="font-bold text-center" style={{display: 'block'}}>
                                             99.000
                                             <span className="align-top"
@@ -233,9 +240,9 @@ function Home() {
                                               style={{bottom: '-4px', right: '34px', fontSize: '.16em'}}>CHỈ VỚI</span>
                                         </span>
 
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div>}
                         </div>
                     )}
                     autoplay={{

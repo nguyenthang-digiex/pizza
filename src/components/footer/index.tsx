@@ -6,7 +6,7 @@ import LogoImage from '../../asses/LogoPizza.png'
 
 function Footer() {
     return (
-        <div className="flex flex-col justify-center items-center bg-[#2c2c2c] mt-10 h-[500px] min-w-[1200px]">
+        <div className="flex flex-col justify-center items-center bg-[#2c2c2c] mt-10 h-[500px] min-w-[1200px] bg-fixed">
             <div className="flex">
                 <div className="flex justify-center items-center rounded-full w-14 h-14 mx-5"
                      style={{border: '1px solid #f0f0f0'}}>

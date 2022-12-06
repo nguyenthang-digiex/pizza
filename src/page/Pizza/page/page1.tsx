@@ -6,6 +6,7 @@ import Pizza5 from "../../../asses/pizza5.png";
 import Pizza6 from "../../../asses/pizza6.png";
 import Pizza7 from "../../../asses/pizza7.png";
 import React from "react";
+import {pizzaList} from "../../../model";
 
 function Page1() {
 
@@ -122,7 +123,7 @@ function Page1() {
     return (
         <div>
             <div className="grid grid-cols-3 gap-4 pb-10" style={{borderBottom: '1px solid #ebeaf1'}}>
-                {tabList.map(tab => (
+                {pizzaList.map(tab => (
                     <div className="flex justify-center items-center w-[50%] hover:border-4 border-[#E9E9E9] cursor-pointer" style={{
                         height: "364px",
                         width: '250px'

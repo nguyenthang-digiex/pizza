@@ -9,6 +9,7 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
+import {burgerList} from "../../model";
 
 function Burger() {
     const [isLoading, setIsLoading] = useState(true);
@@ -205,7 +206,6 @@ function Burger() {
                             </div>
                         </div>
                     </div>
-
                     <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10">
                         <div className="flex flex-col">
                             <div
@@ -255,9 +255,8 @@ function Burger() {
                                 ))}
                             </div>
                         </div>
-
                         <div className="grid grid-cols-3 gap-4 pb-10" style={{borderBottom: '1px solid #ebeaf1'}}>
-                            {tabBurgerList.map(tab => (
+                            {burgerList.map(tab => (
                                 <div className="flex justify-center items-center w-[50%] hover:border-4 border-[#E9E9E9] cursor-pointer" style={{
                                     height: "364px",
                                     width: '250px'

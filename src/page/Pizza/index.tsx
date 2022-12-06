@@ -11,6 +11,7 @@ import Loading from "../../asses/loading";
 function Pizza() {
     const [number, setNumber] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -90,7 +91,6 @@ function Pizza() {
     ]
 
 
-
     return (
         <>
             <div className="grid justify-items-center">
@@ -114,24 +114,58 @@ function Pizza() {
                              style={{borderBottom: '1px solid #ebeaf1'}}>
                             <div>
                                 <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto mr-5 h-8 focus:outline-none w-[150px]">
+                                    className="pl-2 border border-[#8c8c8c] rounded-3xl mr-5 focus:outline-none h-[43px] w-[182px]">
                                     <option>Mặc định</option>
                                     <option>Xem nhiều nhất</option>
                                 </select>
                                 <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto ml-5 h-8 focus:outline-none w-[100px]">
+                                    className="border border-[#8c8c8c] rounded-3xl ml-5 focus:outline-none h-[43px] w-[150px]">
                                     <option>Show 12</option>
                                     <option>Show All</option>
                                 </select>
                             </div>
-                            <div>
-                                <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto ml-5 h-8 focus:outline-none w-[120px]">
-                                    <option>More Filter</option>
-                                </select>
+                            <div
+                                onClick={() => setOpen(!open)}
+                                className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
+                                <option>More Filter</option>
                             </div>
                         </div>
                     </div>
+                    {open &&
+                        <div className="bg-[#f6f6f6] rounded-xl min-w-[1200px] min-h-[300px] z-10 p-10">
+                            <div className="flex">
+                                <div style={{width: '25%'}}>
+                                    <div className="font-thin mb-[12px]" style={{
+                                        fontSize: '1.5em',
+                                        borderBottom: '1px solid rgba(0,0,0,.05)',
+                                        padding: '0 0 1em'
+                                    }}>
+                                        Lọc sản phẩm
+                                    </div>
+                                </div>
+                                <div style={{width: '25%', paddingLeft: '20px'}}>
+                                    <div className="font-thin mb-[12px]" style={{
+                                        fontSize: '1.5em',
+                                        borderBottom: '1px solid rgba(0,0,0,.05)',
+                                        padding: '0 0 1em'
+                                    }}>
+                                        Loại đồ ăn
+                                    </div>
+                                    <div className="flex flex-col pt-5">
+                                        <span className="mb-5 font-normal">
+                                            Loại lớn
+                                        </span>
+                                        <span className="mb-5 font-normal">
+                                            Loại vừa
+                                        </span>
+                                        <span className="mb-5 font-normal">
+                                            Loại nhỏ
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
 
 
                     <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">

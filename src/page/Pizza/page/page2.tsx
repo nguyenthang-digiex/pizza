@@ -6,6 +6,7 @@ import Pizza6 from "../../../asses/pizza6.png";
 import Pizza7 from "../../../asses/pizza7.png";
 import Pizza4 from "../../../asses/pizza4.png";
 import React from "react";
+import {pizzaList} from "../../../model";
 
 function Page2() {
 

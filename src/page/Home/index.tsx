@@ -124,6 +124,7 @@ function Home() {
             setIsLoading(false);
         }, 2000);
     }, []);
+
     return (
         <div className="min-w-[1200px]">
             <div className="min-w-[1200px] overflow-visible m-auto bg-[#c00a27]">

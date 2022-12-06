@@ -1,4 +1,4 @@
-import BannerLogo from '../../asses/banner.png';
+import BannerLogo from '../../asses/Banner.png';
 import BannerLogo1 from '../../asses/banner1.png';
 import BannerLogo2 from '../../asses/banner2.jpeg';
 import BannerSmallLogo from '../../asses/banner_small.jpeg';

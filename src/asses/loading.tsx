@@ -1,6 +1,10 @@
-function Loading() {
+type Props = {
+    className?: any
+}
+function Loading(props: Props) {
+    const {className} = props
     return (
-        <svg xmlns="http://www.w3.org/2000/svg"
+        <svg className={className} xmlns="http://www.w3.org/2000/svg"
              width="200px" height="200px" viewBox="0 0 100 100"
              preserveAspectRatio="xMidYMid">
             <g transform="translate(20 50)">

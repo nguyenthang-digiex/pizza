@@ -22,7 +22,7 @@ function Pizza() {
     const tabList = [
         {
             id: '1',
-            image: <img src={Pizza1} alt="" className="cursor-pointer"/>,
+            image: Pizza1,
             name: 'Hawaii Vegetarian Pizza',
             price: '100.000đ',
             oldPrice: ' 300.000đ',
@@ -31,7 +31,7 @@ function Pizza() {
         {
             id: '2',
             tabTitle: 'Burger',
-            image: <img src={Pizza2} alt="" className="cursor-pointer"/>,
+            image: Pizza2,
             name: 'Hawaii Vegetarian Pizza',
             price: '200.000đ',
             oldPrice: ' 500.000đ',
@@ -40,7 +40,7 @@ function Pizza() {
         {
             id: '3',
             tabTitle: 'Burger',
-            image: <img src={Pizza3} alt="" className="cursor-pointer"/>,
+            image: Pizza3,
             name: 'Hawaii Vegetarian Pizza',
             price: '80.000đ',
             oldPrice: ' 400.000đ',
@@ -49,13 +49,47 @@ function Pizza() {
         {
             id: '4',
             tabTitle: 'Burger',
-            image: <img src={Pizza4} alt="" className="cursor-pointer"/>,
+            image: Pizza4,
             name: 'Hawaii Vegetarian Pizza',
             price: '150.000đ',
             oldPrice: ' 300.000đ',
 
         },
     ]
+
+    const tabProductList = [
+        {
+            id: '1',
+            title: 'Pizza',
+            to: '/pizza'
+        }, {
+            id: '2',
+            title: 'Burger',
+            to: '/burger'
+        }, {
+            id: '3',
+            title: 'Salads',
+            to: '/salads'
+        }, {
+            id: '4',
+            title: 'Tacos',
+            to: '/tacos'
+        }, {
+            id: '5',
+            title: 'Wraps',
+            to: '/wraps'
+        }, {
+            id: '6',
+            title: 'fries',
+            to: '/Fries'
+        }, {
+            id: '7',
+            title: 'Drinks',
+            to: '/drinks'
+        }
+    ]
+
+
 
     return (
         <>
@@ -75,7 +109,6 @@ function Pizza() {
                             {!number && <h3 className="text-white">{">"} Trang 2</h3>}
                         </div>
                     </div>
-
                     <div id="select" className="flex flex-col items-center bg-[#fff] h-[100px] min-w-[1200px]">
                         <div className="flex justify-between items-center min-w-[1200px] p-10 text-[#8c8c8c]"
                              style={{borderBottom: '1px solid #ebeaf1'}}>
@@ -100,48 +133,21 @@ function Pizza() {
                         </div>
                     </div>
 
+
                     <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                         <div className="flex flex-col">
                             <div
                                 className="flex flex-col items-center bg-[#f7f7f7] h-[430px] min-w-[250px] rounded-lg"
                                 style={{borderBottom: '1px solid #ebeaf1'}}>
-                                <Link to="/pizza"
-                                      className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative  mt-0"
-                                      style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Pizza
-                                </Link>
-                                <Link to="/burger"
-                                      className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                      style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Burger
-                                </Link>
-                                <Link
-                                    to="/salads"
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Salads
-                                </Link>
-                                <Link
-                                    to="/tacos"
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Tacos
-                                </Link>
-                                <div
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Wraps
-                                </div>
-                                <div
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Fries
-                                </div>
-                                <div
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0">
-                                    Drinks
-                                </div>
+                                {tabProductList.map(tab => (
+                                    <Link to={tab.to}
+                                          className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative  mt-0"
+                                          style={{borderBottom: '1px solid #ebeaf1'}}>
+                                        {tab.title}
+                                    </Link>
+                                ))}
                             </div>
+
                             <div>
                                 <input
                                     type="search"
@@ -163,7 +169,7 @@ function Pizza() {
                                             className="flex justify-center items-center text-center relative mt-0 py-5 w-[273px]"
                                             style={{borderBottom: '1px solid #ebeaf1'}}>
                                             <div style={{width: '100px', height: '100px'}}>
-                                                {tab.image}
+                                                <img src={tab.image as string} alt="" className="cursor-pointer"/>
                                             </div>
                                             <div>
                                                 <span className="font-normal text-[#c00a27]">{tab.name}</span>

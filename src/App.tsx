@@ -12,6 +12,7 @@ import Tacos from "./page/Tacos";
 import Login from "./page/Auth/Login";
 import Register from "./page/Auth/register";
 import Chat from "./components/Chat";
+import Wraps from "./page/Wraps";
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
                 </Route>
                 <Route path="/tacos">
                     <Route index={true} element={<Tacos/>}/>
+                </Route>
+                <Route path="/wraps">
+                    <Route index={true} element={<Wraps/>}/>
                 </Route>
             </Routes>
             <Footer/>

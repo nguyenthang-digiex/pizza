@@ -1,4 +1,4 @@
-import BannerLogo from '../../asses/Banner.png';
+import BannerLogo from '../../asses/banner.png';
 import BannerLogo1 from '../../asses/banner1.png';
 import BannerLogo2 from '../../asses/banner2.jpeg';
 import BannerSmallLogo from '../../asses/banner_small.jpeg';
@@ -23,7 +23,7 @@ import PanelCarousel from "../../components/PanelCarousel";
 function Home() {
     const [tabName, setTabName] = useState("1");
     const [isLoading, setIsLoading] = useState(true);
-
+    const [showNoti, setShowNoti] = useState(false);
 
     const tabList = [
         {
@@ -126,7 +126,6 @@ function Home() {
     }, []);
     return (
         <div className="min-w-[1200px]">
-
             <div className="min-w-[1200px] overflow-visible m-auto bg-[#c00a27]">
                 <PanelCarousel
                     effect="fade"
@@ -174,7 +173,6 @@ function Home() {
                     }}
                 />
             </div>
-
             <div className="flex justify-center items-center bg-[#fff] min-w-[1200px] pt-10">
                 <div className="flex">
                     <img src={Image} alt="" style={{width: '100%', height: '100%'}}/>
@@ -284,12 +282,15 @@ function Home() {
                     </span>
                     </div>
                 </div>
-                <div className="pt-10 flex">
+                <div className="pt-10 flex relative"
+                     onMouseOut={() => setShowNoti(false)}
+                     onMouseOver={() => setShowNoti(true)}
+                >
                     {pizzaList.map(tab =>
                         <div key={tab.id}
                              className="flex mx-auto text-center justify-center items-center w-[50%]">
-                            <div className="flex flex-col items-center hover:border-4 border-[#E9E9E9] relative"
-                                 style={{height: "364px", width: '250px'}}>
+                            <div className={!showNoti ? 'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[364px] w-[250px]' :
+                            'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[400px] w-[250px]'}>
                                 {tab.image}
                                 <span className="font-normal text-lg">
                                     {tab.name}
@@ -299,6 +300,13 @@ function Home() {
                                 <div className="text-[#666] font-normal text-lg">
                                     <span>{tab.price}</span>-<span>{tab.oldPrice}</span>
                                 </div>
+                                {showNoti &&
+                                    <div className="bottom-0 flex justify-center items-center w-inherit bg-red-500 absolute h-[45px] rounded-full cursor-pointer">
+                                        <div className="flex justify-center items-center" style={{padding: '6px 10px'}}>
+                                            <span className="pl-1 text-xs">Chọn tuỳ chọn</span>
+                                        </div>
+                                    </div>
+                                }
                             </div>
                         </div>
                     )}

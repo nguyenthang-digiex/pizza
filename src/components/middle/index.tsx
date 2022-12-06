@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import PizzaIcon from "../../asses/pizza";
 import BurgerIcon from "../../asses/burger";
 import Tacos from "../../asses/tacos";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function Middle() {
     const [tabName, setTabName] = useState("1");
@@ -46,7 +45,7 @@ function Middle() {
         },
         {
             id: "5",
-            tabTitle: <div className="flex justify-center items-center">Wraps</div>,
+            tabTitle: <Link to="/wraps" className="flex justify-center items-center">Wraps</Link>,
             content: ''
         },
         {

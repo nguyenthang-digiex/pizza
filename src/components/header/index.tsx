@@ -49,7 +49,7 @@ function Header() {
                 <div id="Phone" className="text-white flex flex-col">
                     <div className="flex">
                         <div id="GDH" className="mr-2 text-orange-500">
-                            Gọi đặt hàng tạ
+                            Gọi đặt hàng tại
                         </div>
                         <select className="text-white bg-[#c00a27] focus:outline-none"
                                 onChange={() => setState({...state, typeSelect: !state.typeSelect})}>

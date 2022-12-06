@@ -6,7 +6,7 @@ import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
 
-function Salads() {
+function Wraps() {
     const [isLoading, setIsLoading] = useState(true);
     const tabProductList = [
         {
@@ -46,6 +46,7 @@ function Salads() {
             setIsLoading(false);
         }, 2000);
     }, []);
+
     return (
         <>
             <div className="grid justify-items-center">
@@ -53,14 +54,15 @@ function Salads() {
             </div>
             {!isLoading &&
                 <div className="flex flex-col justify-center items-center min-w-[1200px]">
-                    <div id="banner_salads"
+                    <div id="banner_wraps"
                          className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                         <div className="text-6xl text-white font-serif">
-                            Salads
+                            Wraps
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Salads</h3>
+                            <h3 className="mx-2 text-white"> {">"} Wraps</h3>
+
                         </div>
                     </div>
                     <div id="select" className="flex flex-col items-center bg-[#fff] h-[100px] min-w-[1200px]">
@@ -86,7 +88,8 @@ function Salads() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
+                    <div id="middle_wraps"
+                         className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                         <div className="flex flex-col">
                             <div
                                 className="flex flex-col items-center bg-[#f7f7f7] h-[430px] min-w-[250px] rounded-lg"
@@ -199,4 +202,4 @@ function Salads() {
     )
 }
 
-export default Salads
+export default Wraps

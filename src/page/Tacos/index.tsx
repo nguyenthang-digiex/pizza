@@ -8,6 +8,37 @@ import Loading from "../../asses/loading";
 
 function Tacos() {
     const [isLoading, setIsLoading] = useState(true);
+    const tabProductList = [
+        {
+            id: '1',
+            title: 'Pizza',
+            to: '/pizza'
+        }, {
+            id: '2',
+            title: 'Burger',
+            to: '/burger'
+        }, {
+            id: '3',
+            title: 'Salads',
+            to: '/salads'
+        }, {
+            id: '4',
+            title: 'Tacos',
+            to: '/tacos'
+        }, {
+            id: '5',
+            title: 'Wraps',
+            to: '/wraps'
+        }, {
+            id: '6',
+            title: 'fries',
+            to: '/Fries'
+        }, {
+            id: '7',
+            title: 'Drinks',
+            to: '/drinks'
+        }
+    ]
 
     useEffect(() => {
         setIsLoading(true);
@@ -63,42 +94,13 @@ function Tacos() {
                             <div
                                 className="flex flex-col items-center bg-[#f7f7f7] h-[430px] min-w-[250px] rounded-lg"
                                 style={{borderBottom: '1px solid #ebeaf1'}}>
-                                <Link to="/pizza"
-                                      className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative  mt-0"
-                                      style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Pizza
-                                </Link>
-                                <Link to="/burger"
-                                      className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                      style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Burger
-                                </Link>
-                                <Link
-                                    to="/salads"
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Salads
-                                </Link>
-                                <Link
-                                    to="/tacos"
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Tacos
-                                </Link>
-                                <div
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Wraps
-                                </div>
-                                <div
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0"
-                                    style={{borderBottom: '1px solid #ebeaf1'}}>
-                                    Fries
-                                </div>
-                                <div
-                                    className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative mt-0">
-                                    Drinks
-                                </div>
+                                {tabProductList.map(tab => (
+                                    <Link to={tab.to}
+                                          className="flex justify-center items-center p-[30px] h-[50px] w-[200px] text-center hover:bg-red-600 relative  mt-0"
+                                          style={{borderBottom: '1px solid #ebeaf1'}}>
+                                        {tab.title}
+                                    </Link>
+                                ))}
                             </div>
                             <div>
                                 <input

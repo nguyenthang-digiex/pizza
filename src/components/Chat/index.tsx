@@ -6,6 +6,7 @@ import BoxMessenger from "../BoxChat";
 
 function Chat() {
     const [openBox, setOpenBox] = useState(false);
+
     return (
         <div className="flex flex-col justify-end b-[24px] pr-[20px] fixed bottom-5 right-0 z-[100]">
             <a target="_blank" rel="noopener" href="https://zalo.me/1252964304780656090">

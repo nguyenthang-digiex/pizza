@@ -5,12 +5,12 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
+import {pastaList} from "../../model";
 import FilterProduct from "../../components/FilterProduct";
 
-function Wraps() {
+function Fries() {
     const [isLoading, setIsLoading] = useState(true);
     const [open, setOpen] = useState(false);
-
     const tabProductList = [
         {
             id: '1',
@@ -35,7 +35,7 @@ function Wraps() {
         }, {
             id: '6',
             title: 'fries',
-            to: '/Fries'
+            to: '/fries'
         }, {
             id: '7',
             title: 'Drinks',
@@ -57,14 +57,14 @@ function Wraps() {
             </div>
             {!isLoading &&
                 <div className="flex flex-col justify-center items-center min-w-[1200px]">
-                    <div id="banner_wraps"
+                    <div id="banner_fries"
                          className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                         <div className="text-6xl text-white font-serif">
-                            Wraps
+                            Pasta
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Wraps</h3>
+                            <h3 className="mx-2 text-white"> {">"} Pasta</h3>
 
                         </div>
                     </div>
@@ -94,7 +94,7 @@ function Wraps() {
                     {open &&
                         <FilterProduct/>
                     }
-                    <div id="middle_wraps"
+                    <div id="middle_fries"
                          className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                         <div className="flex flex-col">
                             <div
@@ -195,12 +195,26 @@ function Wraps() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex">
-                            <p className="flex min-w-[850px] bg-[#3D9CD2] p-5 text-white clear-both"
-                               style={{borderLeft: '.6180469716em solid rgba(0,0,0,.15)'}}>
-                                Sản phẩm đang được cập nhật
-                            </p>
+
+
+                        <div className="grid grid-cols-3 gap-4 pb-10" style={{borderBottom: '1px solid #ebeaf1'}}>
+                            {pastaList.map(tab => (
+                                <div className="flex justify-center items-center w-[50%] hover:border-4 border-[#E9E9E9] cursor-pointer" style={{
+                                    height: "364px",
+                                    width: '250px'
+                                }}>
+                                    <div
+                                        className="flex flex-col items-center relative">
+                                        <img src={tab.image} alt="" style={{width: '100%', height: '100%'}}/>
+                                        <span className="font-normal text-lg">{tab.name}</span>
+                                        <div className="text-[#666] font-normal text-lg"><span>{tab.price}đ </span>
+                                            - <span>{tab.oldPrice}đ</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
+
                     </div>
                 </div>
             }
@@ -208,4 +222,4 @@ function Wraps() {
     )
 }
 
-export default Wraps
+export default Fries

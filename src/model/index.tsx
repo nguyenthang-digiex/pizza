@@ -9,6 +9,10 @@ import Burger1 from "../asses/burger1.png";
 import Burger2 from "../asses/burger2.png";
 import Burger3 from "../asses/burger3.png";
 import Burger4 from "../asses/burger4.png";
+import Pasta from "../asses/pasta.png";
+import Pasta1 from "../asses/pasta1.png";
+import Pasta2 from "../asses/pasta2.png";
+import Pasta3 from "../asses/pasta3.png";
 
 export interface obj {
     id?: string;
@@ -190,6 +194,34 @@ export const burgerList: obj[] = [
         name: 'Summer Burger',
         price: '100.000',
         oldPrice: '300.000'
+    },
+]
+
+export const pastaList: obj[] = [
+    {
+        id: '1',
+        image: Pasta,
+        name: 'BBQ Chicken Breast',
+        price: '50.000',
+        oldPrice: '100.000'
+    },{
+        id: '2',
+        image: Pasta1,
+        name: 'Bolognese Pasta',
+        price: '50.000',
+        oldPrice: '100.000'
+    },{
+        id: '3',
+        image: Pasta2,
+        name: 'Molto Tagliatelle',
+        price: '60.000',
+        oldPrice: '100.000'
+    },{
+        id: '4',
+        image: Pasta3,
+        name: 'Pene Salmone',
+        price: '30.000',
+        oldPrice: '100.000'
     },
 ]
 

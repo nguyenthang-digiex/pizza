@@ -1,18 +1,26 @@
-import React from "react";
+import React, {useRef} from "react";
 import Messenger from "../../asses/messenger";
+import useClickOutside from "../../hook/useClickOutside";
 
-type Props = {
-    closeBox?: () => void
+interface Props  {
+    closeBox: (props: boolean) => void
 }
 
 
 function ChatMessenger(props: Props) {
     const {closeBox} = props;
+    const popupRef = useRef<HTMLDivElement>(null);
+
+    const onCloseReview = () => {
+        closeBox(false);
+    };
+    // click outside popup modal to turn off
+    useClickOutside(popupRef, onCloseReview);
 
     return (
         <div
             className="w-[380px] h-[280px] bg-[#fff] fixed bottom-[90px] right-[20px] rounded-[24px] shadow-lg shadow-white-500/50"
-            onClick={closeBox}>
+            onClick={onCloseReview}>
             <div className="m-[24px]">
                 <div className="flex flex-col w-[100%]">
                     <div className="flex justify-center">

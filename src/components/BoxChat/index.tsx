@@ -1,12 +1,12 @@
 import Face from '../../asses/LogoPizza.png';
 import More from "../../asses/more";
 import Close from "../../asses/close";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import IconMessenger from "../../asses/iconMessenger";
 import ChatMessenger from "../ChatMessenger";
 import SettingBoxChat from "../SettingBoxChat";
 
-type Props = {
+interface Props {
     closeBox?: () => void
 }
 

@@ -50,7 +50,7 @@ function Middle() {
         },
         {
             id: "6",
-            tabTitle: <Link to="" className="flex justify-center items-center">
+            tabTitle: <Link to="/fries" className="flex justify-center items-center">
                 <PotatoChipIcon/>
                 Fries
             </Link>,

@@ -10,9 +10,11 @@ import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
 import {burgerList} from "../../model";
+import FilterProduct from "../../components/FilterProduct";
 
 function Burger() {
     const [isLoading, setIsLoading] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const tabProductList = [
         {
@@ -38,7 +40,7 @@ function Burger() {
         }, {
             id: '6',
             title: 'fries',
-            to: '/Fries'
+            to: '/fries'
         }, {
             id: '7',
             title: 'Drinks',
@@ -82,81 +84,6 @@ function Burger() {
 
         },
     ]
-    const tabBurgerList = [
-        {
-            id: '1',
-            image: Burger1,
-            name: 'Hawaii Vegetarian Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '2',
-            image: Burger2,
-            name: 'Chicken Hawaii',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '3',
-            image: Burger3,
-            name: 'Summer Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '4',
-            image: Burger1,
-            name: 'Hawaii Vegetarian Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '5',
-            image: Burger2,
-            name: 'Chicken Hawaii',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '6',
-            image: Burger3,
-            name: 'Summer Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '7',
-            image: Burger1,
-            name: 'Hawaii Vegetarian Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '8',
-            image: Burger4,
-            name: 'Hawaii Vegetarian Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '9',
-            image: Burger2,
-            name: 'Chicken Hawaii',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '10',
-            image: Burger3,
-            name: 'Summer Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        }, {
-            id: '11',
-            image: Burger4,
-            name: 'Hawaii Vegetarian Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        },{
-            id: '12',
-            image: Burger3,
-            name: 'Summer Burger',
-            price: '100.000',
-            oldPrice: '300.000'
-        },
-    ]
 
     useEffect(() => {
         setIsLoading(true);
@@ -188,24 +115,26 @@ function Burger() {
                              style={{borderBottom: '1px solid #ebeaf1'}}>
                             <div>
                                 <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto mr-5 h-8 focus:outline-none w-[150px]">
+                                    className="pl-2 border border-[#8c8c8c] rounded-3xl mr-5 focus:outline-none h-[43px] w-[182px]">
                                     <option>Mặc định</option>
                                     <option>Xem nhiều nhất</option>
                                 </select>
                                 <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto ml-5 h-8 focus:outline-none w-[100px]">
+                                    className="border border-[#8c8c8c] rounded-3xl ml-5 focus:outline-none h-[43px] w-[150px]">
                                     <option>Show 12</option>
                                     <option>Show All</option>
                                 </select>
                             </div>
-                            <div>
-                                <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto ml-5 h-8 focus:outline-none w-[120px]">
-                                    <option>More Filter</option>
-                                </select>
+                            <div
+                                onClick={() => setOpen(!open)}
+                                className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
+                                <option>More Filter</option>
                             </div>
                         </div>
                     </div>
+                    {open &&
+                        <FilterProduct/>
+                    }
                     <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10">
                         <div className="flex flex-col">
                             <div

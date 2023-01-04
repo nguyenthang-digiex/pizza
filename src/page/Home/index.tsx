@@ -18,6 +18,8 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 import Loading from "../../asses/loading";
 import PanelCarousel from "../../components/PanelCarousel";
+import AppCarousel from '../../components/Carousel';
+import PizzaCard from "../Pizza/pizzaCard";
 
 
 function Home() {
@@ -40,10 +42,11 @@ function Home() {
             content: ''
         },
     ]
+
     const pizzaList = [
         {
             id: '1',
-            image: <img src={Pizza1} alt="" className="cursor-pointer"/>,
+            image: Pizza1,
             name: 'Hawaii Vegetarian Pizza',
             title: 'Thực đơn PizzaHome đa dạng và phong phú, có rất nhiều sự lựa chọn cho bạn, gia đình và bạn bè.',
             price: '100.000đ',
@@ -53,7 +56,7 @@ function Home() {
         {
             id: '2',
             tabTitle: 'Burger',
-            image: <img src={Pizza2} alt="" className="cursor-pointer"/>,
+            image: Pizza2,
             name: 'Hawaii Vegetarian Pizza',
             title: 'Thực đơn PizzaHome đa dạng và phong phú, có rất nhiều sự lựa chọn cho bạn, gia đình và bạn bè.',
             price: '200.000đ',
@@ -63,7 +66,7 @@ function Home() {
         {
             id: '3',
             tabTitle: 'Burger',
-            image: <img src={Pizza3} alt="" className="cursor-pointer"/>,
+            image: Pizza3,
             name: 'Hawaii Vegetarian Pizza',
             title: 'Thực đơn PizzaHome đa dạng và phong phú, có rất nhiều sự lựa chọn cho bạn, gia đình và bạn bè.',
             price: '80.000đ',
@@ -73,7 +76,7 @@ function Home() {
         {
             id: '4',
             tabTitle: 'Burger',
-            image: <img src={Pizza4} alt="" className="cursor-pointer"/>,
+            image: Pizza4,
             name: 'Hawaii Vegetarian Pizza',
             title: 'Thực đơn PizzaHome đa dạng và phong phú, có rất nhiều sự lựa chọn cho bạn, gia đình và bạn bè.',
             price: '150.000đ',
@@ -116,8 +119,8 @@ function Home() {
     }, []);
 
     return (
-        <div className="min-w-[1200px]">
-            <div className="min-w-[1200px] overflow-visible m-auto bg-[#c00a27]">
+        <div className="min-w-[1200px] overflow-x-hidden">
+            <div className="min-w-[1200px] overflow-x-hidden m-auto bg-[#c00a27]">
                 <PanelCarousel
                     effect="fade"
                     slidesPerView={1}
@@ -281,31 +284,16 @@ function Home() {
                      onMouseOut={() => setShowNoti(false)}
                      onMouseOver={() => setShowNoti(true)}
                 >
-                    {pizzaList.map(tab =>
-                        <div key={tab.id}
-                             className="flex mx-auto text-center justify-center items-center w-[50%]">
-                            <div
-                                className={!showNoti ? 'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[364px] w-[250px]' :
-                                    'flex flex-col items-center hover:border-4 border-[#E9E9E9] relative h-[400px] w-[250px]'}>
-                                {tab.image}
-                                <span className="font-normal text-lg">
-                                    {tab.name}
-                                    </span>
-                                <span
-                                    className="italic font-normal text-[#71706c] overflow-hidden h-[50px] leading-7 text-xs">{tab.title}</span>
-                                <div className="text-[#666] font-normal text-lg">
-                                    <span>{tab.price}</span>-<span>{tab.oldPrice}</span>
-                                </div>
-                                {showNoti &&
-                                    <div
-                                        className="bottom-0 flex justify-center items-center w-inherit bg-red-500 absolute h-[45px] rounded-full cursor-pointer">
-                                        <div className="flex justify-center items-center" style={{padding: '6px 10px'}}>
-                                            <span className="pl-1 text-xs">Chọn tuỳ chọn</span>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
+                    {pizzaList?.map((tab)=>
+                        <PizzaCard
+                            id={tab.id}
+                            image={tab.image}
+                            name={tab.name}
+                            price={tab.price}
+                            oldPrice={tab.oldPrice}
+                            title={tab.title}
+                            showNoti={showNoti}
+                        />
                     )}
                 </div>
             </div>

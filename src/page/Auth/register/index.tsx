@@ -108,7 +108,7 @@ const Register = () => {
                                 value={state.confirmPassword}
                             />
                             <div className='relative left-[-25px] w-6 h-6 cursor-pointer'
-                                 onClick={() => setState({...state, typePassword: !state.typePassword})}>
+                                 onClick={() => setState({...state, typeConfirmPassword: !state.typeConfirmPassword})}>
                                 {state.typeConfirmPassword ? (<Eye001/>) : <Eye002/>}
                             </div>
                         </div>

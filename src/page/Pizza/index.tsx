@@ -7,6 +7,10 @@ import React, {useEffect, useState} from "react";
 import Page1 from "./page/page1";
 import Page2 from "./page/page2";
 import Loading from "../../asses/loading";
+import FilterProduct from "../../components/FilterProduct";
+import Arrow from "../../asses/arrow";
+import ArrowUp from "../../asses/arrowUp";
+import ArrowDown from "../../asses/arrowDown";
 
 function Pizza() {
     const [number, setNumber] = useState(true);
@@ -57,7 +61,6 @@ function Pizza() {
 
         },
     ]
-
     const tabProductList = [
         {
             id: '1',
@@ -82,7 +85,7 @@ function Pizza() {
         }, {
             id: '6',
             title: 'fries',
-            to: '/Fries'
+            to: '/fries'
         }, {
             id: '7',
             title: 'Drinks',
@@ -128,43 +131,13 @@ function Pizza() {
                                 onClick={() => setOpen(!open)}
                                 className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
                                 <option>More Filter</option>
+                                {open ? <ArrowUp/> : <ArrowDown/>}
                             </div>
                         </div>
                     </div>
+
                     {open &&
-                        <div className="bg-[#f6f6f6] rounded-xl min-w-[1200px] min-h-[300px] z-10 p-10">
-                            <div className="flex">
-                                <div style={{width: '25%'}}>
-                                    <div className="font-thin mb-[12px]" style={{
-                                        fontSize: '1.5em',
-                                        borderBottom: '1px solid rgba(0,0,0,.05)',
-                                        padding: '0 0 1em'
-                                    }}>
-                                        Lọc sản phẩm
-                                    </div>
-                                </div>
-                                <div style={{width: '25%', paddingLeft: '20px'}}>
-                                    <div className="font-thin mb-[12px]" style={{
-                                        fontSize: '1.5em',
-                                        borderBottom: '1px solid rgba(0,0,0,.05)',
-                                        padding: '0 0 1em'
-                                    }}>
-                                        Loại đồ ăn
-                                    </div>
-                                    <div className="flex flex-col pt-5">
-                                        <span className="mb-5 font-normal">
-                                            Loại lớn
-                                        </span>
-                                        <span className="mb-5 font-normal">
-                                            Loại vừa
-                                        </span>
-                                        <span className="mb-5 font-normal">
-                                            Loại nhỏ
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <FilterProduct/>
                     }
 
 

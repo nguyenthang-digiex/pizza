@@ -4,6 +4,7 @@ import Button from "../../../components/button";
 import Eye001 from "../../../asses/eye001";
 import Eye002 from "../../../asses/eye002";
 import {Link, useNavigate} from "react-router-dom";
+import * as Yup from "yup";
 
 function Login() {
     const navigate = useNavigate()
@@ -13,7 +14,20 @@ function Login() {
         password: "",
     })
     const [loading, setLoading] = useState(false);
-
+    const loginSchema = Yup.object()
+        .shape({
+            email: Yup.string()
+                .trim()
+                .email("Wrong email format")
+                .min(3, "Minimum 3 symbols")
+                .max(50, "Maximum 50 symbols")
+                .required("Email is required"),
+            password: Yup.string()
+                .trim()
+                .min(3, "Minimum 3 symbols")
+                .max(50, "Maximum 50 symbols")
+                .required("Password is required")
+        });
     const handleLogin = () => {
         setLoading(false)
         // @ts-ignore

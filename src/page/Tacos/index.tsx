@@ -5,9 +5,12 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
+import FilterProduct from "../../components/FilterProduct";
 
 function Tacos() {
     const [isLoading, setIsLoading] = useState(true);
+    const [open, setOpen] = useState(false);
+
     const tabProductList = [
         {
             id: '1',
@@ -70,24 +73,27 @@ function Tacos() {
                              style={{borderBottom: '1px solid #ebeaf1'}}>
                             <div>
                                 <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto mr-5 h-8 focus:outline-none w-[150px]">
+                                    className="pl-2 border border-[#8c8c8c] rounded-3xl mr-5 focus:outline-none h-[43px] w-[182px]">
                                     <option>Mặc định</option>
                                     <option>Xem nhiều nhất</option>
                                 </select>
                                 <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto ml-5 h-8 focus:outline-none w-[100px]">
+                                    className="border border-[#8c8c8c] rounded-3xl ml-5 focus:outline-none h-[43px] w-[150px]">
                                     <option>Show 12</option>
                                     <option>Show All</option>
                                 </select>
                             </div>
-                            <div>
-                                <select
-                                    className="pl-2 border border-[#8c8c8c] rounded-3xl w-auto ml-5 h-8 focus:outline-none w-[120px]">
-                                    <option>More Filter</option>
-                                </select>
+                            <div
+                                onClick={() => setOpen(!open)}
+                                className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
+                                <option>More Filter</option>
                             </div>
                         </div>
                     </div>
+
+                    {open &&
+                        <FilterProduct/>
+                    }
                     <div id="middle_tacos"
                          className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                         <div className="flex flex-col">

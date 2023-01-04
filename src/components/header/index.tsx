@@ -1,8 +1,10 @@
 import {Link, useNavigate} from "react-router-dom";
 import LogoImage from '../../asses/LogoPizza.png'
 import IconShipper from '../../asses/shipper.svg'
-import {useState} from "react";
+import React, {useState} from "react";
 import Logout from "../../asses/logout";
+import Collapse from "../../asses/collapse";
+import Expand from "../../asses/expand";
 
 
 function Header() {
@@ -11,13 +13,28 @@ function Header() {
         typeSelect: true
     })
     const [showNoti, setShowNoti] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     // @ts-ignore
     const loginValue = JSON.parse(localStorage.getItem('save_password'));
 
     const handleLogout = () => {
+        localStorage.removeItem('save_password')
         navigate('/auth/login')
     }
+
+    function toggleeFullscreen() {
+        const elem = document.documentElement
+        if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch((err) => {
+            })
+            setIsFullscreen(true)
+        } else {
+            document.exitFullscreen()
+            setIsFullscreen(false)
+        }
+    }
+
 
     return (
         <div className="flex justify-around items-center bg-[#c00a27] min-w-[1200px] pt-8">
@@ -81,15 +98,23 @@ function Header() {
                                  }}>
                                 <div className="flex justify-center items-center" style={{padding: '6px 10px'}}>
                                     <span className=" pl-1 shrink-0 text-xs">0 items</span>
-                                    <span className="pl-[26px] pr-[14px] text-xs shrink-0 font-bold">0<span className="underline">đ</span></span>
+                                    <span className="pl-[26px] pr-[14px] text-xs shrink-0 font-bold">0<span
+                                        className="underline">đ</span></span>
                                 </div>
                             </div>
                         }
                     </div>
 
                 </div>
-
+                <button
+                    onClick={() => toggleeFullscreen()}
+                    style={{width: 76, height: 76}}
+                    type="button"
+                    className="flex items-center justify-center">
+                    {isFullscreen ? <Collapse/> : <Expand/>}
+                </button>
             </div>
+
         </div>
     )
 }

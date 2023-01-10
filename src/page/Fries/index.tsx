@@ -5,8 +5,10 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
-import {pastaList} from "../../model";
+import {burgerList, categoryList, pastaList} from "../../model";
 import FilterProduct from "../../components/FilterProduct";
+import ArrowUp from "../../asses/arrowUp";
+import ArrowDown from "../../asses/arrowDown";
 
 function Fries() {
     const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +45,10 @@ function Fries() {
         }
     ]
 
+    const handleLength = pastaList.length
+    const handleChangeDietTypeBig = pastaList.filter((e) => e.status === "BIG").length
+    const handleChangeDietTypeSmall = pastaList.filter((e) => e.status === "SMALL").length
+
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
@@ -60,11 +66,17 @@ function Fries() {
                     <div id="banner_fries"
                          className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                         <div className="text-6xl text-white font-serif">
-                            Pasta
+                            PASTA
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Pasta</h3>
+                            {categoryList?.map((e) =>
+                                <div>
+                                    {e.id === '3' &&
+                                        <h3 className="mx-2 text-white"> {">"} {e.name}</h3>
+                                    }
+                                </div>
+                            )}
 
                         </div>
                     </div>
@@ -87,12 +99,16 @@ function Fries() {
                                 onClick={() => setOpen(!open)}
                                 className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
                                 <option>More Filter</option>
+                                {open ? <ArrowUp/> : <ArrowDown/>}
                             </div>
                         </div>
                     </div>
 
                     {open &&
-                        <FilterProduct/>
+                        <FilterProduct
+                            handleFilter={handleLength}
+                            handleFilterBig={handleChangeDietTypeBig}
+                            handleFilterSmall={handleChangeDietTypeSmall}/>
                     }
                     <div id="middle_fries"
                          className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">

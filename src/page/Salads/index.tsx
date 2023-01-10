@@ -6,6 +6,9 @@ import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
 import FilterProduct from "../../components/FilterProduct";
+import {categoryList, pastaList, saladList} from "../../model";
+import ArrowUp from "../../asses/arrowUp";
+import ArrowDown from "../../asses/arrowDown";
 
 function Salads() {
     const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +45,10 @@ function Salads() {
         }
     ]
 
+    const handleLength = saladList.length
+    const handleChangeDietTypeBig = saladList.filter((e) => e.status === "BIG").length
+    const handleChangeDietTypeSmall = saladList.filter((e) => e.status === "SMALL").length
+
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
@@ -58,11 +65,17 @@ function Salads() {
                     <div id="banner_salads"
                          className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                         <div className="text-6xl text-white font-serif">
-                            Salads
+                            SALADS
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Salads</h3>
+                            {categoryList?.map((e) =>
+                                <div>
+                                    {e.id === '4' &&
+                                        <h3 className="mx-2 text-white"> {">"} {e.name}</h3>
+                                    }
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div id="select" className="flex flex-col items-center bg-[#fff] h-[100px] min-w-[1200px]">
@@ -84,12 +97,16 @@ function Salads() {
                                 onClick={() => setOpen(!open)}
                                 className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
                                 <option>More Filter</option>
+                                {open ? <ArrowUp/> : <ArrowDown/>}
                             </div>
                         </div>
                     </div>
 
                     {open &&
-                        <FilterProduct/>
+                        <FilterProduct
+                            handleFilter={handleLength}
+                            handleFilterBig={handleChangeDietTypeBig}
+                            handleFilterSmall={handleChangeDietTypeSmall}/>
                     }
                     <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">
                         <div className="flex flex-col">

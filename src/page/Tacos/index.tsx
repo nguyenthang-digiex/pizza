@@ -6,6 +6,9 @@ import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
 import FilterProduct from "../../components/FilterProduct";
+import {categoryList, tacosList} from "../../model";
+import ArrowUp from "../../asses/arrowUp";
+import ArrowDown from "../../asses/arrowDown";
 
 function Tacos() {
     const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +46,10 @@ function Tacos() {
         }
     ]
 
+    const handleLength = tacosList.length
+    const handleChangeDietTypeBig = tacosList.filter((e) => e.status === "BIG").length
+    const handleChangeDietTypeSmall = tacosList.filter((e) => e.status === "SMALL").length
+
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
@@ -60,11 +67,17 @@ function Tacos() {
                     <div id="banner_tacos"
                          className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                         <div className="text-6xl text-white font-serif">
-                            Tacos
+                            TACOS
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Tacos</h3>
+                            {categoryList?.map((e) =>
+                                <div>
+                                    {e.id === '5' &&
+                                        <h3 className="mx-2 text-white"> {">"} {e.name}</h3>
+                                    }
+                                </div>
+                            )}
 
                         </div>
                     </div>
@@ -87,12 +100,16 @@ function Tacos() {
                                 onClick={() => setOpen(!open)}
                                 className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
                                 <option>More Filter</option>
+                                {open ? <ArrowUp/> : <ArrowDown/>}
                             </div>
                         </div>
                     </div>
 
                     {open &&
-                        <FilterProduct/>
+                        <FilterProduct
+                            handleFilter={handleLength}
+                            handleFilterBig={handleChangeDietTypeBig}
+                            handleFilterSmall={handleChangeDietTypeSmall}/>
                     }
                     <div id="middle_tacos"
                          className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10 ">

@@ -8,9 +8,9 @@ import Page1 from "./page/page1";
 import Page2 from "./page/page2";
 import Loading from "../../asses/loading";
 import FilterProduct from "../../components/FilterProduct";
-import Arrow from "../../asses/arrow";
 import ArrowUp from "../../asses/arrowUp";
 import ArrowDown from "../../asses/arrowDown";
+import {categoryList, pizzaList} from "../../model";
 
 function Pizza() {
     const [number, setNumber] = useState(true);
@@ -93,6 +93,9 @@ function Pizza() {
         }
     ]
 
+    const handleLength = pizzaList.length
+    const handleChangeDietTypeBig = pizzaList.filter((e) => e.status === "BIG").length
+    const handleChangeDietTypeSmall = pizzaList.filter((e) => e.status === "SMALL").length
 
     return (
         <>
@@ -108,8 +111,16 @@ function Pizza() {
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Pizza</h3>
+                            {categoryList?.map((e) =>
+                                <div>
+                                    {e.id === '1' &&
+                                        <h3 className="mx-2 text-white"> {">"} {e.name}</h3>
+                                    }
+                                </div>
+                            )}
                             {!number && <h3 className="text-white">{">"} Trang 2</h3>}
+
+
                         </div>
                     </div>
                     <div id="select" className="flex flex-col items-center bg-[#fff] h-[100px] min-w-[1200px]">
@@ -137,7 +148,10 @@ function Pizza() {
                     </div>
 
                     {open &&
-                        <FilterProduct/>
+                        <FilterProduct
+                            handleFilter={handleLength}
+                            handleFilterBig={handleChangeDietTypeBig}
+                            handleFilterSmall={handleChangeDietTypeSmall}/>
                     }
 
 

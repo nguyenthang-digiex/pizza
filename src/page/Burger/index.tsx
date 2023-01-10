@@ -9,8 +9,10 @@ import Pizza3 from "../../asses/pizza3.png";
 import Pizza4 from "../../asses/pizza4.png";
 import React, {useEffect, useState} from "react";
 import Loading from "../../asses/loading";
-import {burgerList} from "../../model";
+import {burgerList, categoryList, pizzaList} from "../../model";
 import FilterProduct from "../../components/FilterProduct";
+import ArrowUp from "../../asses/arrowUp";
+import ArrowDown from "../../asses/arrowDown";
 
 function Burger() {
     const [isLoading, setIsLoading] = useState(true);
@@ -85,6 +87,10 @@ function Burger() {
         },
     ]
 
+    const handleLength = burgerList.length
+    const handleChangeDietTypeBig = burgerList.filter((e) => e.status === "BIG").length
+    const handleChangeDietTypeSmall = burgerList.filter((e) => e.status === "SMALL").length
+
     useEffect(() => {
         setIsLoading(true);
         setTimeout(() => {
@@ -102,11 +108,17 @@ function Burger() {
                     <div id="banner_burger"
                          className="flex flex-col justify-center items-center bg-[#ccc] h-[300px]  min-w-full">
                         <div className="text-6xl text-white font-serif">
-                            Burger
+                            BURGER
                         </div>
                         <div className="flex pt-5 ">
                             <Link to="/" className="text-white">Trang Chủ</Link>
-                            <h3 className="mx-2 text-white"> {">"} Burger</h3>
+                            {categoryList?.map((e) =>
+                                <div>
+                                    {e.id === '2' &&
+                                        <h3 className="mx-2 text-white"> {">"} {e.name}</h3>
+                                    }
+                                </div>
+                            )}
 
                         </div>
                     </div>
@@ -129,11 +141,16 @@ function Burger() {
                                 onClick={() => setOpen(!open)}
                                 className="flex justify-center items-center text-black bg-[#d7d7d7] pl-2 rounded-3xl font-bold ml-5 cursor-pointer focus:outline-none h-[43px] w-[156px]">
                                 <option>More Filter</option>
+                                {open ? <ArrowUp/> : <ArrowDown/>}
                             </div>
                         </div>
                     </div>
                     {open &&
-                        <FilterProduct/>
+                        <FilterProduct
+                            handleFilter={handleLength}
+                            handleFilterBig={handleChangeDietTypeBig}
+                            handleFilterSmall={handleChangeDietTypeSmall}/>
+
                     }
                     <div className="flex justify-between items-start min-h-screen min-w-[1200px] mt-10">
                         <div className="flex flex-col">
@@ -186,10 +203,12 @@ function Burger() {
                         </div>
                         <div className="grid grid-cols-3 gap-4 pb-10" style={{borderBottom: '1px solid #ebeaf1'}}>
                             {burgerList.map(tab => (
-                                <div className="flex justify-center items-center w-[50%] hover:border-4 border-[#E9E9E9] cursor-pointer" style={{
-                                    height: "364px",
-                                    width: '250px'
-                                }}>
+                                <div
+                                    className="flex justify-center items-center w-[50%] hover:border-4 border-[#E9E9E9] cursor-pointer"
+                                    style={{
+                                        height: "364px",
+                                        width: '250px'
+                                    }}>
                                     <div
                                         className="flex flex-col items-center relative">
                                         <img src={tab.image} alt="" style={{width: '100%', height: '100%'}}/>
